@@ -8,7 +8,7 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
    - Os dados são carregados de um arquivo CSV público e tratados para análise.
 
 2. **Análise Exploratória**
-   - Visualização da distribuição do churn e análise das variáveis.
+   - Visualização da distribuição do churn e análise das variáveis mais relevantes.
 
 3. **Pré-processamento**
    - Codificação de variáveis categóricas com OneHotEncoder.
@@ -17,7 +17,9 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
    - Normalização das variáveis numéricas.
 
 4. **Modelagem**
-   - Treinamento de modelos de Regressão Logística e Random Forest.
+   - Treinamento de modelos: 
+     - Regressão Logística.
+     - Random Forest.
    - Avaliação dos modelos com métricas como acurácia, precisão, recall, F1-score e AUC-ROC.
 
 5. **Interpretação dos Resultados**
