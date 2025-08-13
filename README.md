@@ -10,6 +10,17 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 - `img/`: Pasta com gráficos e visualizações gerados durante a análise.
 
 
+## Como executar
+
+1. Instale as dependências:
+   ```
+   pip install pandas seaborn matplotlib scikit-learn imbalanced-learn statsmodels
+   ```
+2. Certifique-se de que o arquivo `TelecomX_Dados_Limpos.csv` está na mesma pasta do notebook.
+3. Abra o arquivo `telecom-x_BR.ipynb` no Jupyter Notebook ou VS Code.
+4. Execute as células em ordem para reproduzir toda a análise.
+
+
 ## Preparação dos Dados
 
 1. **Classificação das Variáveis**
@@ -46,7 +57,8 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
     <img src="img/tempo_contrato_churn.png" alt="Tempo Contrato x Churn" width="45%" />
   </p>
 
-**Principais insights:**
+
+### Principais insights:
 - Clientes com contratos mais longos tendem a permanecer.
 - Cobranças elevadas aumentam o risco de churn.
 - O recebimento de fatura digital e o perfil familiar (idosos, dependentes, cônjuge) influenciam a evasão.
@@ -55,8 +67,8 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 ## Modelagem
 
 ### **Modelos utilizados**:
-- **Regressão Logística**
-- **Random Forest**
+- Regressão Logística
+- Random Forest
 
 ### Avaliação
 
@@ -78,23 +90,11 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
     <img src="img/rd_variaveis.png" alt="Importância das Variáveis" width="60%" />
 </p>
 
-
 **Recomendações de Retenção**
    - Oferecer benefícios para contratos mais longos.
    - Revisar políticas de cobrança.
    - Acompanhar clientes que recebem fatura digital.
    - Valorizar perfis familiares com programas de fidelidade.
-
-## Como executar
-
-1. Instale as dependências:
-   ```
-   pip install pandas seaborn matplotlib scikit-learn imbalanced-learn statsmodels
-   ```
-2. Certifique-se de que o arquivo `TelecomX_Dados_Limpos.csv` está na mesma pasta do notebook.
-3. Abra o arquivo `telecom-x_BR.ipynb` no Jupyter Notebook ou VS Code.
-4. Execute as células em ordem para reproduzir toda a análise.
-
 
 ## Resultados
 
