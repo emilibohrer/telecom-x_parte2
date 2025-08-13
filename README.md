@@ -54,23 +54,6 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 
 ## Modelagem
 
-- ### **Avaliação**:
-  - Métricas: acurácia, precisão, recall, F1-score, AUC-ROC.
-  - Random Forest apresentou melhor desempenho (acurácia de 82%, AUC-ROC de 0.90).
-
-- ### **Principais variáveis**:
-  - Tempo de contrato
-  - Valor total cobrado
-  - Fatura digital
-  - Perfil familiar (idosos, dependentes, cônjuge)
-
-
-  Relacionamento das principais variáveis com o churn
-  <p align="center">
-  <img src="img/cobranca_total_churn.png" alt="Cobrança Total x Churn" width="45%" />
-  <img src="img/tempo_contrato_churn.png" alt="Tempo Contrato x Churn" width="45%" />
-</p>
-
 ### **Modelos utilizados**:
 - **Regressão Logística**
 - **Random Forest**
@@ -115,6 +98,11 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 
 ## Resultados
 
-- O modelo Random Forest foi o mais eficiente para prever churn.
-- Fatores financeiros e familiares são os principais influenciadores da evasão.
-- Estratégias de retenção baseadas nesses fatores podem aumentar a fidelização dos clientes.
+- **Desempenho do Modelo**:  
+O modelo Random Forest demonstrou o melhor desempenho na previsão de churn, superando a regressão Logística em termos de acurácia e capacidade de generalização. Sua robustez e habilidade de lidar com as variáveis o tornam ideal para esse tipo de análise.
+
+- **Principais Fatores de Churn**:  
+A análise revelou que aspectos financeiros (como inadimplência e renda familiar) e dinâmicas familiares (como mudanças na composição do núcleo familiar ou responsabilidades domésticas) são os principais determinantes da evasão de clientes. Esses fatores se destacaram como variáveis com maior importância relativa no modelo.
+
+- **Estratégias de Retenção**:  
+A partir desses insights, recomenda-se o desenvolvimento de estratégias de retenção personalizadas, focadas em mitigar os impactos dos fatores financeiros e familiares. Ações como flexibilização de pagamentos, suporte personalizado e programas de fidelidade adaptados ao perfil socioeconômico podem contribuir significativamente para a redução do churn e o aumento da lealdade dos clientes.
