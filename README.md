@@ -7,6 +7,8 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 
 - `telecom-x_BR.ipynb`: Notebook principal com todo o fluxo de análise, modelagem e visualizações.
 - `TelecomX_Dados_Limpos.csv`: Arquivo CSV com os dados tratados e prontos para análise.
+- `img/`: Pasta com gráficos e visualizações gerados durante a análise.
+
 
 ## Preparação dos Dados
 
@@ -21,11 +23,6 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 3. **Balanceamento**
    - Utilização do SMOTE para equilibrar as classes de churn.
 
-<p align="center">
-  <img src="img/distribuicao_churn.png" alt="Distribuição Churn" width="45%" />
-  <img src="img/distribuicao_churn_balanceado.png" alt="Distribuição Churn Balanceado" width="45%" />
-</p>
-
 4. **Separação dos dados**
    - Divisão em conjuntos de treino e teste (70% treino, 30% teste) para garantir avaliação justa dos modelos.
 
@@ -35,8 +32,27 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
    - Balanceamento evita viés para a classe majoritária.
 
 
-## Modelagem
+## Análise Exploratória (EDA)
 
+- Distribuição do churn antes e depois do balanceamento:
+  <p align="center">
+    <img src="img/distribuicao_churn.png" alt="Distribuição Churn" width="45%" />
+    <img src="img/distribuicao_churn_balanceado.png" alt="Distribuição Churn Balanceado" width="45%" />
+  </p>
+
+- Relação entre cobrança total, tempo de contrato e churn:
+  <p align="center">
+    <img src="img/cobranca_total_churn.png" alt="Cobrança Total x Churn" width="45%" />
+    <img src="img/tempo_contrato_churn.png" alt="Tempo Contrato x Churn" width="45%" />
+  </p>
+
+**Principais insights:**
+- Clientes com contratos mais longos tendem a permanecer.
+- Cobranças elevadas aumentam o risco de churn.
+- O recebimento de fatura digital e o perfil familiar (idosos, dependentes, cônjuge) influenciam a evasão.
+
+
+## Modelagem
 
 - ### **Avaliação**:
   - Métricas: acurácia, precisão, recall, F1-score, AUC-ROC.
@@ -55,74 +71,30 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
   <img src="img/tempo_contrato_churn.png" alt="Tempo Contrato x Churn" width="45%" />
 </p>
 
-- ### **Modelos utilizados**:
-#### 1) Regressão Logística
+### **Modelos utilizados**:
+- **Regressão Logística**
+- **Random Forest**
 
-Análise das variáveis mais relevantes:
+### Avaliação
 
-<div style="text-align: center;">
-  <table style="border-collapse: collapse; margin: auto;">
-    <thead>
-      <tr>
-        <th style="border-right: 1px solid #ccc; padding: 8px; text-align: center;">Variável</th>
-        <th style="padding: 8px; text-align: center;">Coeficientes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">tempo_de_contrato</td>
-        <td style="padding: 8px; text-align: right;">-2.511658</td>
-      </tr>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">cobranca_total</td>
-        <td style="padding: 8px; text-align: right;">1.528867</td>
-      </tr>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">fatura_digital_1</td>
-        <td style="padding: 8px; text-align: right;">0.837263</td>
-      </tr>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">idoso_1</td>
-        <td style="padding: 8px; text-align: right;">0.835703</td>
-      </tr>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">dependentes_1</td>
-        <td style="padding: 8px; text-align: right;">-0.348092</td>
-      </tr>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">genero_Masculino</td>
-        <td style="padding: 8px; text-align: right;">-0.006404</td>
-      </tr>
-      <tr>
-        <td style="border-right: 1px solid #ccc; padding: 8px;">tem_conjuge_1</td>
-        <td style="padding: 8px; text-align: right;">0.002767</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+- Métricas: acurácia, precisão, recall, F1-score, AUC-ROC.
+- O modelo Random Forest apresentou melhor desempenho:  
+  **Acurácia:** 82%  
+  **AUC-ROC:** 0.90
 
-OBSERVAÇÕES  
-`tempo_de_contrato`: Coeficiente negativo, indica que clientes com maior tempo de contrato têm menor probabilidade de camcelamento.  
-`cobranca_total`: Coeficiente positivo, sugere que cobranças totais mais altas aumentam a chance de churn.  
-`fatura_digital`: Coeficiente positivo, indica que clientes que recebem fatura digital tendem a evadir mais.  
-`idoso`: Coeficiente negativo, mostra que idosos têm menor propensão ao churn.  
-`dependentes` e `tem_conjuge`: Ambos negativos, sugere que clientes com dependentes ou cônjuge são mais fiéis. 
+### Principais Variáveis Identificadas
 
+- **Tempo de contrato:** Quanto maior, menor o risco de churn.
+- **Valor total cobrado:** Cobranças mais altas aumentam o risco de churn.
+- **Fatura digital:** Clientes que recebem fatura digital têm maior propensão à evasão.
+- **Perfil familiar:** Idosos, clientes com dependentes ou cônjuge tendem a permanecer mais.
 
-#### 2) Random Forest
-
-Analisando a importânicia das principais variáveis  
+#### Importância das variáveis no Random Forest
 
 <p align="left">
-    <img src="img/rd_variaveis.png" alt="Cobrança Total x Churn" width="60%" />
+    <img src="img/rd_variaveis.png" alt="Importância das Variáveis" width="60%" />
 </p>
 
-OBSERVAÇÕES
-
-`tempo_de_contrato`: Altíssima importância, reforçando o papel do tempo de contrato na retenção.  
-`cobranca_total`: Também muito relevante, indicando que valores altos de cobrança estão associados ao churn.  
-`fatura_digital`: Importante para o modelo, sugerindo que o método de recebimento da fatura influencia a evasão.  
-`idoso`, `dependentes`, `tem_conjuge`: Todas aparecem entre as mais relevantes, alinhando-se com os resultados da regressão logística.
 
 **Recomendações de Retenção**
    - Oferecer benefícios para contratos mais longos.
@@ -136,10 +108,13 @@ OBSERVAÇÕES
    ```
    pip install pandas seaborn matplotlib scikit-learn imbalanced-learn statsmodels
    ```
-2. Abra o arquivo `telecom-x_BR.ipynb` no Jupyter Notebook ou VS Code.
-3. Execute as células em ordem para reproduzir a análise.
+2. Certifique-se de que o arquivo `TelecomX_Dados_Limpos.csv` está na mesma pasta do notebook.
+3. Abra o arquivo `telecom-x_BR.ipynb` no Jupyter Notebook ou VS Code.
+4. Execute as células em ordem para reproduzir toda a análise.
+
 
 ## Resultados
 
-- O modelo Random Forest apresentou melhor desempenho, com acurácia de 82% e AUC-ROC de 0.90.
-- Os fatores financeiros e familiares são os principais influenciadores de churn.
+- O modelo Random Forest foi o mais eficiente para prever churn.
+- Fatores financeiros e familiares são os principais influenciadores da evasão.
+- Estratégias de retenção baseadas nesses fatores podem aumentar a fidelização dos clientes.
