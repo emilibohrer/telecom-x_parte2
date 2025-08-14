@@ -72,10 +72,43 @@ Este projeto utiliza técnicas de ciência de dados para prever o churn (evasão
 
 ### Avaliação
 
-- Métricas: acurácia, precisão, recall, F1-score, AUC-ROC.
-- O modelo Random Forest apresentou melhor desempenho:  
-  **Acurácia:** 82%  
-  **AUC-ROC:** 0.90
+<table>
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Acurácia</th>
+      <th>Precisão</th>
+      <th>Recall</th>
+      <th>F1-score</th>
+      <th>AUC-ROC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Random Forest</td>
+      <td>0.824</td>
+      <td>0.824</td>
+      <td>0.825</td>
+      <td>0.825</td>
+      <td>0.904</td>
+    </tr>
+    <tr>
+      <td>Regressão Logística</td>
+      <td>0.750</td>
+      <td>0.722</td>
+      <td>0.813</td>
+      <td>0.765</td>
+      <td>0.824</td>
+    </tr>
+  </tbody>
+</table>
+
+`Random Forest` apresentou desempenho superior em todas as métricas: acurácia, precisão, recall e F1-score, com valores próximos de 0.825.  
+`Regressão Logística` teve desempenho mais modesto, com acurácia de 0.750 e F1-score de 0.765, mas ainda mostrou bom recall (0.813), indicando que identificou bem os casos positivos.
+A diferença mais significativa está na precisão, onde o Random Forest foi mais eficaz (0.824 vs. 0.722), sugerindo menos falsos positivos.
+
+🔍 **Conclusão:** O modelo Random Forest é mais equilibrado e robusto para este conjunto de dados, sendo a melhor escolha caso o objetivo seja maximizar o desempenho geral da classificação
+
 
 ### Principais Variáveis Identificadas
 
